@@ -1,0 +1,34 @@
+{
+    "FileVersion": 3,
+    "Version": 1000,
+    "VersionName": "0.10.0",
+    "FriendlyName": "Tryll MCP",
+    "Description": "Lets an AI coding agent create, validate and read Tryll workflow assets through the Unreal editor's MCP server. Requires UE 5.8.",
+    "Category": "Tryll",
+    "CreatedBy": "Tryll",
+    "CreatedByURL": "https://tryllengine.com",
+    "IsBetaVersion": true,
+    "EnabledByDefault": false,
+    "CanContainContent": false,
+    "Modules": [
+        {
+            "Name": "TryllMCP",
+            "Type": "Editor",
+            "LoadingPhase": "PostEngineInit"
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "TryllClient",
+            "Enabled": true
+        },
+        {
+            "Name": "ToolsetRegistry",
+            "Enabled": true
+        },
+        {
+            "Name": "ModelContextProtocol",
+            "Enabled": true
+        }
+    ]
+}

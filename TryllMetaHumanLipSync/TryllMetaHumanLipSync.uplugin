@@ -1,0 +1,48 @@
+{
+    "FileVersion": 3,
+    "Version": 1000,
+    "VersionName": "0.10.0",
+    "FriendlyName": "Tryll MetaHuman Lip Sync",
+    "Description": "Drives MetaHuman faces from Tryll TTS audio at runtime via Epic's realtime speech-to-animation model.",
+    "Category": "Tryll",
+    "CreatedBy": "Tryll",
+    "CreatedByURL": "https://tryllengine.com",
+    "EnabledByDefault": false,
+    "CanContainContent": true,
+    "Modules": [
+        {
+            "Name": "TryllMetaHumanLipSync",
+            "Type": "Runtime",
+            "LoadingPhase": "Default",
+            "PlatformAllowList": [
+                "Win64"
+            ]
+        },
+        {
+            "Name": "TryllMetaHumanLipSyncEditor",
+            "Type": "Editor",
+            "LoadingPhase": "Default",
+            "PlatformAllowList": [
+                "Win64"
+            ]
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "TryllClient",
+            "Enabled": true
+        },
+        {
+            "Name": "LiveLink",
+            "Enabled": true
+        },
+        {
+            "Name": "MetaHumanCoreTech",
+            "Enabled": true
+        },
+        {
+            "Name": "NNERuntimeORT",
+            "Enabled": true
+        }
+    ]
+}

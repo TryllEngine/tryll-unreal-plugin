@@ -1,0 +1,29 @@
+{
+    "FileVersion": 3,
+    "Version": 1000,
+    "VersionName": "0.10.0",
+    "FriendlyName": "Tryll Client",
+    "Description": "TCP/FlatBuffers client for the Tryll on-device SLM inference server. Full protocol parity with tryll-client (C++): session configuration, workflow graph-driven agent lifecycle, streaming text, and model management.",
+    "Category": "Networking",
+    "CreatedBy": "Tryll",
+    "CanContainContent": true,
+    "IsBetaVersion": true,
+    "Modules": [
+        {
+            "Name": "TryllClient",
+            "Type": "Runtime",
+            "LoadingPhase": "Default"
+        },
+        {
+            "Name": "TryllClientEditor",
+            "Type": "Editor",
+            "LoadingPhase": "PostEngineInit"
+        }
+    ],
+    "Plugins": [
+        {
+            "Name": "AudioCapture",
+            "Enabled": true
+        }
+    ]
+}
