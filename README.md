@@ -2,7 +2,7 @@
 
 Tryll runs language, speech-to-text and text-to-speech models on the player's own machine, and
 connects them to your game through workflow-driven agents. This repository holds the Tryll Unreal
-plugins, version 0.10.0.
+plugins, version 0.10.1.
 
 - **Platform:** Windows x64
 - **Docs:** https://docs.tryllengine.com/v0.10/
@@ -28,7 +28,7 @@ Prebuilt zips per Unreal Engine version:
 This is the easy way. It works in Blueprint-only projects.
 
 1. Open [Releases](https://github.com/TryllEngine/tryll-unreal-plugin/releases) and download the zips for your Unreal Engine version:
-   `TryllClient-0.10.0-UE<version>-Win64.zip`, plus any optional plugin.
+   `TryllClient-0.10.1-UE<version>-Win64.zip`, plus any optional plugin.
 2. Unzip each one into your project's `Plugins/` folder, so you get `Plugins/TryllClient/`,
    `Plugins/TryllMetaHumanLipSync/` and so on.
 3. Open the project. The **Tryll Welcome** window opens. Accept the licence there; the editor starts
@@ -44,8 +44,8 @@ Use this when you want to change the plugin code. Your project needs C++ (a code
 Unreal compiles the plugins.
 
 1. Copy the plugin folders from this repository into your project's `Plugins/` folder.
-2. From the same release, download `tryll-server-0.10.0-win64-full.zip` (CUDA and Vulkan) or
-   `tryll-server-0.10.0-win64-lite.zip` (CPU and Vulkan), and unzip it into
+2. From the same release, download `tryll-server-0.10.1-win64-full.zip` (CUDA and Vulkan) or
+   `tryll-server-0.10.1-win64-lite.zip` (CPU and Vulkan), and unzip it into
    `Plugins/TryllClient/Binaries/ThirdParty/TryllServer/Default/`.
 3. Open the project and let Unreal build the plugins.
 

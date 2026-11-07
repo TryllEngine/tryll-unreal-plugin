@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
-    "Version": 1000,
-    "VersionName": "0.10.0",
+    "Version": 1001,
+    "VersionName": "0.10.1",
     "FriendlyName": "Tryll MCP",
     "Description": "Lets an AI coding agent create, validate and read Tryll workflow assets through the Unreal editor's MCP server. Requires UE 5.8.",
     "Category": "Tryll",

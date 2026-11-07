@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
-    "Version": 1000,
-    "VersionName": "0.10.0",
+    "Version": 1001,
+    "VersionName": "0.10.1",
     "FriendlyName": "Tryll Client",
     "Description": "TCP/FlatBuffers client for the Tryll on-device SLM inference server. Full protocol parity with tryll-client (C++): session configuration, workflow graph-driven agent lifecycle, streaming text, and model management.",
     "Category": "Networking",

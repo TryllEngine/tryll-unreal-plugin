@@ -1,6 +1,6 @@
 # TRYLL ENGINE LICENSE AGREEMENT
 
-Last updated: November 5, 2026
+Last updated: November 6, 2026
 
 This Tryll Engine License Agreement (“**Agreement**”) is between Tryll Engine, Inc., a Delaware corporation (“**Company**,” “**we**,” or “**us**”), and the person or entity that accepts it (“**Licensee**” or “**you**”). It governs your use of the software development kit and AI runtime distributed under the title Tryll Engine and related materials. Capitalized terms are defined in Annex A, which is part of this Agreement.
 
@@ -98,23 +98,21 @@ The Product must also include the copyright, license, and attribution notices th
 
 ## <a id="s5"></a>5. TELEMETRY AND DATA
 
-<a id="s5-1"></a>**5.1** During development, the Software sends us operational telemetry: hardware configuration data (operating system, GPU, and VRAM), usage metadata (server launches, number of turns, and Software version), platform, and a random project identifier, as further described in the Documentation. The Software collects operational telemetry by default, and you cannot turn it off. Operational telemetry is a condition of the license in Section [2](#s2).
+<a id="s5-1"></a>**5.1** The Software never sends us any data about players of your Products. Builds of the Server that you distribute in your Products do not send us any telemetry or other data, and this Agreement does not authorize collection of data from players’ devices through the Software. The Software sends us operational telemetry only during development. It is technical data about how the Software runs and does not include your name, contact details, or project content. It includes hardware configuration data (operating system, CPU, RAM, GPU, and VRAM), usage metadata (server launches and installations, model identifiers, download results, a summary of agent configurations and parameter changes without their names or content, number of turns, and Software version), platform, a random installation identifier, and a random project identifier. The Software collects operational telemetry by default, and you cannot turn it off. Operational telemetry is a condition of the license in Section [2](#s2).
 
-<a id="s5-2"></a>**5.2** The Software also sends us content telemetry (prompts, user messages, and model responses processed during development) by default. You may turn off content telemetry at any time through the configuration settings described in the Documentation. Turning off content telemetry does not affect Software functionality. After you submit the Release Form for a Product, the Software no longer sends content telemetry for that Product.
+<a id="s5-2"></a>**5.2** Only if you choose to turn it on in the Software settings, the Software also sends us content telemetry (prompts, user messages, and model responses processed during development). You may turn off content telemetry at any time. Turning off content telemetry does not affect Software functionality.
 
 <a id="s5-3"></a>**5.3** Telemetry does not include game assets or source code. We keep telemetry for no longer than 12 months after collection, after which we delete or anonymize it.
 
-<a id="s5-4"></a>**5.4** You will inform your Permitted Users that the Software sends telemetry to us, as described in our Privacy Policy. You will not knowingly submit through the Software any personal data of players or testers, or any special categories of personal data. If you need to process such data during development, you will first turn off content telemetry.
+<a id="s5-4"></a>**5.4** You will inform your Permitted Users that the Software sends telemetry to us, as described in our Privacy Policy. You will not knowingly submit through the Software any personal data of players or testers, or any special categories of personal data. If you process such data during development, you will keep content telemetry turned off.
 
-<a id="s5-5"></a>**5.5** Builds of the Server that you distribute in your Products do not send us any telemetry or other data about players of your Products. This Agreement does not authorize collection of data from players’ devices through the Software.
+<a id="s5-5"></a>**5.5** We will not use Licensee Inputs to train, fine-tune, or otherwise improve any machine learning model, except (a) with your prior written consent or (b) on aggregated and anonymized telemetry that cannot reasonably be re-associated with you or any specific project.
 
-<a id="s5-6"></a>**5.6** We will not use Licensee Inputs to train, fine-tune, or otherwise improve any machine learning model, except (a) with your prior written consent or (b) on aggregated and anonymized telemetry that cannot reasonably be re-associated with you or any specific project.
+<a id="s5-6"></a>**5.6** We may aggregate and anonymize telemetry so that it no longer reasonably identifies any individual or you, and use that data for any lawful business purpose, including improving our products and services, product analytics, and reporting to investors.
 
-<a id="s5-7"></a>**5.7** We may aggregate and anonymize telemetry so that it no longer reasonably identifies any individual or you, and use that data for any lawful business purpose, including improving our products and services, product analytics, and reporting to investors.
+<a id="s5-7"></a>**5.7** Our Privacy Policy at [https://docs.tryllengine.com/latest/reference/legal/privacy-policy.html](https://docs.tryllengine.com/latest/reference/legal/privacy-policy.html) describes how we process personal data. You are responsible for the privacy notices in your Products and for complying with privacy laws for any data you collect from players.
 
-<a id="s5-8"></a>**5.8** Our Privacy Policy at [https://docs.tryllengine.com/latest/reference/legal/privacy-policy.html](https://docs.tryllengine.com/latest/reference/legal/privacy-policy.html) describes how we process personal data. You are responsible for the privacy notices in your Products and for complying with privacy laws for any data you collect from players.
-
-<a id="s5-9"></a>**5.9** We process telemetry and release information as an independent controller for our own purposes, including Software stability monitoring, performance analytics, product improvement, security incident detection, and verifying compliance with this Agreement, as described in our Privacy Policy. We do not process personal data on your behalf, and no data processing agreement is required between us.
+<a id="s5-8"></a>**5.8** We process telemetry and release information as an independent controller for our own purposes, including Software stability monitoring, performance analytics, product improvement, security incident detection, and verifying compliance with this Agreement, as described in our Privacy Policy. We do not process personal data on your behalf, and no data processing agreement is required between us.
 
 ## <a id="s6"></a>6. RELEASE TERMS
 
@@ -140,7 +138,7 @@ The Product must also include the copyright, license, and attribution notices th
 
 ## <a id="s7"></a>7. ATTRIBUTION AND TRADEMARKS
 
-<a id="s7-1"></a>**7.1** Each Released Product must display the Tryll Engine logo on its startup screen as described in our separate instructions or guidelines, if any. Trailers and advertisements that you or your publisher make or commission and that show features powered by the Software must include “*Powered by Tryll Engine.*”
+<a id="s7-1"></a>**7.1** Each Released Product must display the Tryll Engine logo on its startup screen. You may request the logo files and instructions for their use at [team@tryllengine.com](mailto:team@tryllengine.com). Trailers and advertisements that you or your publisher make or commission and that show features powered by the Software must include “*Powered by Tryll Engine.*”
 
 <a id="s7-2"></a>**7.2** You may opt out of Section [7.1](#s7-1) by selecting the no-logo option in the Release Form. For a Product with the no-logo option, the royalty rate in Section [6.2](#s6-2) is 1.5% instead of 1%.
 
@@ -172,11 +170,13 @@ The Product must also include the copyright, license, and attribution notices th
 
 ## <a id="s10"></a>10. THIRD-PARTY MODELS AND COMPONENTS
 
-<a id="s10-1"></a>**10.1** The Software is designed to work with the Compatible Models. Their providers license them to you under their own terms, not under this Agreement. You download their weights directly from those providers or their authorized channels, including through download features of the Software, and we do not distribute them. By downloading a Compatible Model, you accept its terms directly with its provider. You are responsible for obtaining, reviewing, and complying with those terms in your Products, including any field-of-use, attribution, and distribution requirements. We make no representation or warranty about any Compatible Model, and we may stop supporting any of them.
+<a id="s10-1"></a>**10.1** The Software is designed to work with the Compatible Models. Their providers license them to you under their own terms, not under this Agreement. You download their weights from those providers or from other sources indicated in the Software, which may include third-party repositories. This includes downloads through features of the Software. We do not distribute these weights. By downloading a Compatible Model, you accept its terms directly with its provider. You are responsible for obtaining, reviewing, and complying with those terms in your Products, including any field-of-use, attribution, and distribution requirements. We make no representation or warranty about any Compatible Model or its source, and we may stop supporting any of them.
 
 <a id="s10-2"></a>**10.2** The Tryll Models are subject to this Agreement and to the license of the Compatible Model on which each of them is based, as identified in the Documentation. You will comply with them, including their use restrictions and attribution requirements. Where those licenses require it, your Product will pass their use restrictions on to players.
 
 <a id="s10-3"></a>**10.3** The Software includes third-party components that are subject to their own license terms, as identified in the Documentation or in the Software. You will comply with those terms, including their notice requirements, if any.
+
+<a id="s10-4"></a>**10.4** The Software may give you access to third-party models, tools, and services, including paid ones (“**Third-Party Services**”). Their providers offer them under their own terms and fees, which you accept and pay directly to them. The Third-Party Services are not part of the Software, and we are not responsible for them. We may receive fees from their providers, including for referrals, and information from them about your use of and payments for their services.
 
 ## <a id="s11"></a>11. AI COMPLIANCE AND OUTPUTS
 
@@ -212,11 +212,11 @@ The Product must also include the copyright, license, and attribution notices th
 
 <a id="s12-6"></a>**12.6** If we terminate this Agreement, within 15 calendar days you must stop using and distributing the Software and any Products that include it, delete all copies of the Software, and, on our request, certify this to us in writing. All royalties due become payable immediately. Continued use or distribution of the Software after termination is both a breach of this Agreement and copyright infringement. Players may continue to use copies of your Products that they obtained before termination.
 
-<a id="s12-7"></a>**12.7** Sections [3.5](#s3-5), [5.3](#s5-3), [5.6](#s5-6), [6](#s6) (for amounts accrued), [6.8](#s6-8), [8](#s8), [9](#s9), [11](#s11), [12.6](#s12-6), [13](#s13), [14](#s14), [15](#s15), [16](#s16), and [18](#s18) survive termination.
+<a id="s12-7"></a>**12.7** Sections [3.5](#s3-5), [5.3](#s5-3), [5.5](#s5-5), [6](#s6) (for amounts accrued), [6.8](#s6-8), [8](#s8), [9](#s9), [11](#s11), [12.6](#s12-6), [13](#s13), [14](#s14), [15](#s15), [16](#s16), and [18](#s18) survive termination.
 
 ## <a id="s13"></a>13. DISCLAIMERS
 
-<a id="s13-1"></a>**13.1** THE SOFTWARE, THE TRYLL MATERIALS, AND THE OUTPUTS ARE PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SOFTWARE IS ERROR-FREE OR FREE OF HARMFUL COMPONENTS, THAT IT WILL PERFORM ON ANY PARTICULAR HARDWARE, OR THAT THE SOFTWARE OR ANY OUTPUTS COMPLY WITH THE LAWS, PLATFORM RULES, OR AGE RATINGS THAT APPLY TO YOUR PRODUCTS.
+<a id="s13-1"></a>**13.1** THE SOFTWARE, THE TRYLL MATERIALS, ANY THIRD-PARTY SERVICES, AND THE OUTPUTS ARE PROVIDED “AS IS” AND “AS AVAILABLE.” TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SOFTWARE IS ERROR-FREE OR FREE OF HARMFUL COMPONENTS, THAT IT WILL PERFORM ON ANY PARTICULAR HARDWARE, OR THAT THE SOFTWARE OR ANY OUTPUTS COMPLY WITH THE LAWS, PLATFORM RULES, OR AGE RATINGS THAT APPLY TO YOUR PRODUCTS.
 
 <a id="s13-2"></a>**13.2** We have no obligation to provide support, updates, or services under this Agreement. We provide services only under a separate written agreement.
 
@@ -244,7 +244,7 @@ The Product must also include the copyright, license, and attribution notices th
 
 <a id="s15-2"></a>**15.2** We will notify you promptly of any claim, allow you to control its defense, and cooperate with you at your expense. You may not settle any claim in a way that imposes obligations on us or admits fault on our behalf without our prior written consent.
 
-<a id="s15-3"></a>**15.3** We provide no defense or indemnity for any claim that the Software, any Compatible Model, or any Output infringes a third party’s intellectual property rights.
+<a id="s15-3"></a>**15.3** We provide no defense or indemnity for any claim that the Software, any Compatible Model, any Third-Party Service, or any Output infringes a third party’s intellectual property rights.
 
 ## <a id="s16"></a>16. GOVERNING LAW AND DISPUTES
 
@@ -278,7 +278,7 @@ The Product must also include the copyright, license, and attribution notices th
 
 <a id="s18-4"></a>**18.4** You represent that neither you nor any Permitted User is a Restricted Party. You will not use, export, or re-export the Software (a) to or for the benefit of any Restricted Party, (b) for any end use connected with chemical, biological, or nuclear weapons or missiles capable of delivering them, or (c) for any military, intelligence, or security-sector end use in any country or territory subject to comprehensive US, EU, or UK sanctions. You will comply with all applicable export control and sanctions laws, including the US Export Administration Regulations and OFAC regulations.
 
-<a id="s18-5"></a>**18.5** This Agreement, including its annexes and the documents it refers to, is the entire agreement between the parties on its subject matter.
+<a id="s18-5"></a>**18.5** This Agreement, including its annexes and the documents it refers to, is the entire agreement between the parties on its subject matter. We may agree with you in writing, including by email, on different terms. Those terms prevail over this Agreement to the extent they conflict with it.
 
 <a id="s18-6"></a>**18.6** If a court or tribunal finds any provision unenforceable, that provision will be enforced to the maximum extent permitted, and the rest of this Agreement remains in effect.
 
@@ -304,7 +304,7 @@ The Product must also include the copyright, license, and attribution notices th
 
 “**AI Act**” means Regulation (EU) 2024/1689, the EU Artificial Intelligence Act.
 
-“**Compatible Models**” means the third-party AI models that the Software is designed to work with, as listed in the Documentation.
+“**Compatible Models**” means the third-party AI models that you use with the Software, including models available for download through the Software.
 
 “**Documentation**” means the technical documentation for the Software available at [docs.tryllengine.com](https://docs.tryllengine.com/) or another URL we designate.
 
@@ -318,7 +318,7 @@ The Product must also include the copyright, license, and attribution notices th
 
 “**Plugin**” means the Tryll Engine plugin for game engines, including its source code.
 
-“**Product**” means a video game or other interactive application that you develop with the Software. Updates, downloadable content, expansions, ports, and editions of a Product are part of that Product. Each sequel, remake, or standalone spin-off is a separate Product.
+“**Product**” means a video game or other interactive application that you develop with the Software. Updates, downloadable content, expansions, ports, and editions of a Product are part of that Product. Each sequel, remake, or standalone spin-off is a separate Product. References to players include all end users of a Product, including users of applications that are not games.
 
 “**Release**” means making a Product, or any version of it, available to anyone other than your Permitted Users, for free or for a fee, including early access, demos, public or closed playtests with external participants, free-to-play releases, ports, and distribution by a publisher. “**Released**” has a corresponding meaning.
 
