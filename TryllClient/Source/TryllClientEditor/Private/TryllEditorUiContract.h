@@ -92,7 +92,7 @@ struct TRYLLCLIENTEDITOR_API FTryllEditorUiContract
 	static const TCHAR* WelcomeLicenceWithdraw;
 	static const TCHAR* WelcomeLicenceRead;
 	static const TCHAR* WelcomeTelemetryLink;
-	static const TCHAR* WelcomeLicenceViewerTitle;
+	static const TCHAR* WelcomeLicenceLocalCopy;
 	static const TCHAR* TextEditorOpen;
 	static const TCHAR* TextEditorTitle;
 	static const TCHAR* TextEditorGone;

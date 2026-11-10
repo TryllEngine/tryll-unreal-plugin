@@ -9,6 +9,7 @@
 #include "HAL/PlatformProcess.h"
 
 TFunction<void(const FString&)> FTryllCommunityLinks::DebugOpenUrlForTests;
+TFunction<void(const FString&)> FTryllCommunityLinks::DebugOpenFileForTests;
 
 namespace TryllCommunityLinksPrivate
 {
@@ -64,4 +65,14 @@ void FTryllCommunityLinks::OpenUrl(const FString& Url)
 		return;
 	}
 	FPlatformProcess::LaunchURL(*Url, nullptr, nullptr);
+}
+
+void FTryllCommunityLinks::OpenFile(const FString& Path)
+{
+	if (DebugOpenFileForTests)
+	{
+		DebugOpenFileForTests(Path);
+		return;
+	}
+	FPlatformProcess::LaunchFileInDefaultExternalApplication(*Path, nullptr, ELaunchVerb::Open);
 }

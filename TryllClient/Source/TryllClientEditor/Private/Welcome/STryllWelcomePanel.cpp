@@ -5,7 +5,6 @@
 #include "Welcome/STryllWelcomePanel.h"
 
 #include "Welcome/STryllHelpPanel.h"
-#include "Welcome/STryllLicenceViewer.h"
 #include "Welcome/TryllCommunityLinks.h"
 #include "Welcome/TryllCommunityWidgets.h"
 #include "Welcome/TryllWelcomeStartup.h"
@@ -40,6 +39,7 @@ namespace TryllWelcomePanelPrivate
 const TCHAR* const TagAccept = TEXT("Tryll.Welcome.LicenceAccept");
 const TCHAR* const TagWithdraw = TEXT("Tryll.Welcome.LicenceWithdraw");
 const TCHAR* const TagRead = TEXT("Tryll.Welcome.LicenceRead");
+const TCHAR* const TagLocalCopy = TEXT("Tryll.Welcome.LicenceLocalCopy");
 const TCHAR* const TagTelemetry = TEXT("Tryll.Welcome.Telemetry");
 const TCHAR* const TagOpenHelp = TEXT("Tryll.Welcome.OpenHelp");
 
@@ -332,7 +332,8 @@ void STryllWelcomePanel::AddLicenceLinks(const TSharedRef<SWrapBox>& Target, boo
 	};
 	TWeakPtr<STryllWelcomePanel> Weak = SharedThis(this);
 
-	// Without a LICENSE.md there is nothing to read; Accept still works.
+	// Without a LICENSE.md there is nothing to read; Accept still works. "Read" opens this
+	// version's docs page, which renders the same file; the local copy works offline.
 	bReadLicenceShown = State.bHasLicenceFile;
 	if (bReadLicenceShown)
 	{
@@ -340,7 +341,13 @@ void STryllWelcomePanel::AddLicenceLinks(const TSharedRef<SWrapBox>& Target, boo
 		[
 			Make(FTryllEditorUiContract::WelcomeLicenceRead,
 				[Weak]() { if (TSharedPtr<STryllWelcomePanel> Self = Weak.Pin()) { Self->OnReadLicence(); } },
-				TagRead, FString())
+				TagRead, FTryllCommunityLinks::Licence)
+		];
+		Target->AddSlot().VAlign(VAlign_Center)
+		[
+			Make(FTryllEditorUiContract::WelcomeLicenceLocalCopy,
+				[Weak]() { if (TSharedPtr<STryllWelcomePanel> Self = Weak.Pin()) { Self->OnOpenLocalLicence(); } },
+				TagLocalCopy, FTryllLicence::LicenceFilePath())
 		];
 	}
 	bTelemetryShown = true;
@@ -511,7 +518,14 @@ void STryllWelcomePanel::OnLicenceButton(bool bAccept)
 
 void STryllWelcomePanel::OnReadLicence()
 {
-	STryllLicenceViewer::Open();
+	// The docs page of this plugin's version: the shipped LICENSE.md, rendered.
+	FTryllCommunityLinks::OpenUrl(FTryllCommunityLinks::Licence);
+}
+
+void STryllWelcomePanel::OnOpenLocalLicence()
+{
+	// Offline fallback: the shipped file itself, in the OS default app.
+	FTryllCommunityLinks::OpenFile(FTryllLicence::LicenceFilePath());
 }
 
 void STryllWelcomePanel::OnOpenTelemetry()

@@ -20,6 +20,8 @@ struct TRYLLCLIENTEDITOR_API FTryllCommunityLinks
 	static constexpr const TCHAR* GettingStarted = TryllDocs::GettingStartedUnreal;
 	/** What telemetry the server sends; the Welcome window's "Telemetry" button. */
 	static constexpr const TCHAR* Telemetry = TryllDocs::Telemetry;
+	/** The licence page of this version's docs; the Welcome window's "Read the licence" button. */
+	static constexpr const TCHAR* Licence = TryllDocs::Licence;
 	/** How to report a bug; the Help & Community tab's "Report a bug" button. */
 	static constexpr const TCHAR* ReportBug = TryllDocs::ReportABug;
 	static constexpr const TCHAR* GitHub = TEXT("https://github.com/TryllEngine");
@@ -46,4 +48,10 @@ struct TRYLLCLIENTEDITOR_API FTryllCommunityLinks
 
 	/** Test seam: receives the URL instead of the browser. */
 	static TFunction<void(const FString&)> DebugOpenUrlForTests;
+
+	/** Opens a local file in the OS default app, or hands it to the test seam. */
+	static void OpenFile(const FString& Path);
+
+	/** Test seam: receives the path instead of the OS. */
+	static TFunction<void(const FString&)> DebugOpenFileForTests;
 };

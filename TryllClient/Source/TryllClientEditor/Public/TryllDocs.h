@@ -19,4 +19,6 @@ namespace TryllDocs
 	inline constexpr TCHAR GettingStartedUnreal[] = TRYLL_DOCS_BASE_URL TEXT("getting-started/first-inference-unreal.html");
 	inline constexpr TCHAR Telemetry[] = TRYLL_DOCS_BASE_URL TEXT("reference/telemetry.html");
 	inline constexpr TCHAR ReportABug[] = TRYLL_DOCS_BASE_URL TEXT("how-to/report-a-bug.html");
+	/** The licence for this docs version, so it is the text this plugin ships. */
+	inline constexpr TCHAR Licence[] = TRYLL_DOCS_BASE_URL TEXT("reference/legal/licence.html");
 }

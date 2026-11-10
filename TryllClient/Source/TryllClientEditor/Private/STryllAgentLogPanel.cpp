@@ -24,6 +24,7 @@
 #include "TryllObservationTypes.h"
 #include "AgentLog/TryllAgentLogWriteStore.h"
 #include "TryllAgentLogDocument.h"
+#include "Welcome/TryllCommunityWidgets.h"
 
 #include "DesktopPlatformModule.h"
 #include "IDesktopPlatform.h"
@@ -1080,6 +1081,8 @@ FReply STryllAgentLogPanel::OnExportClicked()
 
 	FTryllAgentLogExportInfo Info;
 	Info.HostVersion = FEngineVersion::Current().ToString();
+	// Same number the Welcome and Help tabs show (a dev checkout reads VERSION).
+	Info.PluginVersion = TryllCommunityWidgets::ClientVersion();
 	Info.ProjectName = FApp::GetProjectName();
 	Info.Os = FPlatformMisc::GetOSVersion();
 	Info.CaptureState = Store->IsHistoryDiscarded()

@@ -26,6 +26,7 @@
 #include "UI/TryllEditorStyle.h"
 #include "UI/TryllTailFollow.h"
 #include "TryllStatusPresentation.h"
+#include "TryllClientModule.h"
 #include "TryllEditorUiContract.h"
 #include "TryllModelManifest.h"
 
@@ -418,7 +419,7 @@ FReply STryllChatPanel::OnCompareInLabClicked()
 	}
 	if (SkippedEmptyTurns > 0)
 	{
-		UE_LOG(LogTemp, Warning,
+		UE_LOG(LogTryll, Warning,
 			TEXT("STryllChatPanel: Compare in Lab skipped %d turn(s) with no assistant output"),
 			SkippedEmptyTurns);
 	}
@@ -1412,13 +1413,20 @@ void STryllChatPanel::SetState(EState S, const FString& InStatus)
 void STryllChatPanel::Fail(const FString& Reason)
 {
 	SetState(EState::Error, Reason);
-	UE_LOG(LogTemp, Warning, TEXT("STryllChatPanel: %s"), *Reason);
+	if (Reason == FTryllEditorUiContract::ServerNeedsLicence)
+	{
+		UE_LOG(LogTryll, Log, TEXT("STryllChatPanel: %s"), *Reason);
+	}
+	else
+	{
+		UE_LOG(LogTryll, Warning, TEXT("STryllChatPanel: %s"), *Reason);
+	}
 }
 
 void STryllChatPanel::RejectStart(const FString& Reason)
 {
 	SetState(EState::Idle, Reason);
-	UE_LOG(LogTemp, Warning, TEXT("STryllChatPanel: %s"), *Reason);
+	UE_LOG(LogTryll, Warning, TEXT("STryllChatPanel: %s"), *Reason);
 }
 
 // ── Input ─────────────────────────────────────────────────────────────────────
@@ -1537,7 +1545,7 @@ void STryllChatPanel::Start()
 	RefreshAgentCandidates();
 	if (!SelectedComponent.IsValid())
 	{
-		RejectStart(TEXT("Assign a UTryllAgentComponent from the scene"));
+		RejectStart(TEXT("Assign a UTryllAgentComponent from the scene: add a Tryll Agent Component to an actor in the level (Details ▶ Add ▶ Tryll Agent Component)."));
 		return;
 	}
 	if (VoiceSource == ETryllChatVoiceSource::Component && !SelectedVoiceComponent.IsValid())
@@ -1713,7 +1721,7 @@ void STryllChatPanel::OnModelsReady(bool bSuccess, FString Error)
 	TArray<FTryllVariableDecl> Declared;
 	if (!Comp->WorkflowAsset)
 	{
-		Fail(TEXT("Assign a Workflow Asset on the selected component."));
+		Fail(FString::Printf(TEXT("Assign a Workflow Asset on the selected component. %s"), UTryllAgentComponent::MissingWorkflowAssetHint));
 		return;
 	}
 	ResolvedGraph = Comp->WorkflowAsset->Graph;
@@ -2031,7 +2039,7 @@ void STryllChatPanel::BeginUtterance(bool bAutoFinishOnSilence)
 	if (!StartCapture())
 	{
 		bPttHeld = false;
-		UE_LOG(LogTemp, Warning, TEXT("[Tryll] Microphone capture failed to start"));
+		UE_LOG(LogTryll, Warning, TEXT("[Tryll] Microphone capture failed to start"));
 		return;
 	}
 
@@ -2049,7 +2057,7 @@ void STryllChatPanel::BeginUtterance(bool bAutoFinishOnSilence)
 		P->bAwaitingUtteranceFinal = false;
 		P->bHandsFreeActive        = false;
 		P->StopCapture();
-		UE_LOG(LogTemp, Warning, TEXT("[Tryll] BeginUtterance failed: %s"), *Error.Message);
+		UE_LOG(LogTryll, Warning, TEXT("[Tryll] BeginUtterance failed: %s"), *Error.Message);
 	});
 	bUtteranceActive = true;
 	bCapturing       = true;
@@ -2072,7 +2080,7 @@ void STryllChatPanel::EndUtterance()
 			TSharedPtr<STryllChatPanel> P = WeakSelf.Pin();
 			if (!P.IsValid() || Error.IsOk()) return;
 			P->bAwaitingUtteranceFinal = false;
-			UE_LOG(LogTemp, Warning, TEXT("[Tryll] Utterance op failed: %s"), *Error.Message);
+			UE_LOG(LogTryll, Warning, TEXT("[Tryll] Utterance op failed: %s"), *Error.Message);
 		});
 	}
 }
@@ -2090,7 +2098,7 @@ void STryllChatPanel::CancelUtterance()
 		{
 			TSharedPtr<STryllChatPanel> P = WeakSelf.Pin();
 			if (!P.IsValid() || Error.IsOk()) return;
-			UE_LOG(LogTemp, Warning, TEXT("[Tryll] Utterance op failed: %s"), *Error.Message);
+			UE_LOG(LogTryll, Warning, TEXT("[Tryll] Utterance op failed: %s"), *Error.Message);
 		});
 	}
 	if (InputBox.IsValid())
@@ -2129,7 +2137,7 @@ void STryllChatPanel::HandleTranscriptUpdate(const FString& Text, uint8 Kind)
 			}
 			else
 			{
-				UE_LOG(LogTemp, Warning,
+				UE_LOG(LogTryll, Warning,
 					TEXT("STryllChatPanel: ignored final transcript while a turn was active"));
 			}
 		}

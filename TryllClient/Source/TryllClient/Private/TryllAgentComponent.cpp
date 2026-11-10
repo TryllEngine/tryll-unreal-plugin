@@ -12,12 +12,16 @@
 #include "TryllVariableOverrideUtils.h"
 #include "TryllClientModule.h"
 #include "TryllVoiceProfile.h"
+#include "Generated/Nodes/TryllDocsBase.gen.h"
 
 #include "Engine/GameInstance.h"
 
 #if WITH_EDITOR
 #include "Misc/DataValidation.h"
 #endif
+
+const TCHAR* const UTryllAgentComponent::MissingWorkflowAssetHint =
+	TEXT("In the Content Browser, right-click ▶ Tryll ▶ Workflow Asset, then assign it to the component's Workflow Asset property.");
 
 UTryllAgentComponent::UTryllAgentComponent()
 {
@@ -122,8 +126,13 @@ void UTryllAgentComponent::CreateAgent()
 
 	if (!WorkflowAsset)
 	{
-		UE_LOG(LogTryll, Error, TEXT("UTryllAgentComponent: CreateAgent failed: WorkflowAsset is not assigned"));
-		OnError.Broadcast(TEXT("WorkflowAsset is not assigned"));
+		const FString Message = FString::Printf(
+			TEXT("WorkflowAsset is not assigned. %s Getting started: %s"),
+			MissingWorkflowAssetHint,
+			TRYLL_DOCS_BASE_URL TEXT("getting-started/first-inference-unreal.html"));
+		UE_LOG(LogTryll, Error, TEXT("UTryllAgentComponent: CreateAgent failed on '%s': %s"),
+			*GetNameSafe(GetOwner()), *Message);
+		OnError.Broadcast(Message);
 		return;
 	}
 

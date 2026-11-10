@@ -87,6 +87,12 @@ class TRYLLCLIENT_API UTryllAgentComponent : public UActorComponent
 public:
 	UTryllAgentComponent();
 
+	/**
+	 * How to clear a missing Workflow Asset. Shared by the CreateAgent error and the
+	 * Details-panel notice, so the Output Log names the same next step the Details panel does.
+	 */
+	static const TCHAR* const MissingWorkflowAssetHint;
+
 	// ── Properties ────────────────────────────────────────────────────────────
 
 	/** Designer-authored workflow asset. Required for agent creation. */

@@ -25,7 +25,8 @@ struct FTryllAgentLogExportInfo
 {
 	FString Host = TEXT("unreal");
 	FString HostVersion;
-	FString PluginVersion = TEXT("0.9.0-DEV");
+	/** Set by the exporter from the plugin descriptor; empty when unknown. */
+	FString PluginVersion;
 	FString ProjectName;
 	FString Os;
 	FString ServerVersion;

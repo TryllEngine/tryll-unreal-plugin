@@ -165,9 +165,9 @@ void FTryllAgentComponentCustomization::CustomizeDetails(IDetailLayoutBuilder& D
 			.WholeRowContent()
 			[
 				SNew(STextBlock)
-				.Text(LOCTEXT("MissingWorkflowAsset",
-					"Assign a Workflow Asset. The component cannot create an agent without one. "
-					"Content Browser ▶ Tryll ▶ Workflow Asset, then assign it above."))
+				.Text(FText::Format(LOCTEXT("MissingWorkflowAsset",
+					"Assign a Workflow Asset. The component cannot create an agent without one. {0}"),
+					FText::FromString(UTryllAgentComponent::MissingWorkflowAssetHint)))
 				.Font(IDetailLayoutBuilder::GetDetailFont())
 				.ColorAndOpacity(FSlateColor(FLinearColor(1.f, 0.4f, 0.4f)))
 				.AutoWrapText(true)

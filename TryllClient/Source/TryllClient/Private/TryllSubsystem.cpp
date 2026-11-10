@@ -331,7 +331,16 @@ void UTryllSubsystem::LaunchServerProcess()
 		if (!EditorBridge->TryLaunch(
 			GetDefault<UTryllRuntimeSettings>()->ServerBuildVariant, KnownPort, /*IdleShutdownTimeoutSeconds=*/60, Error))
 		{
-			UE_LOG(LogTryll, Error, TEXT("Failed to launch/reuse the Tryll server: %s"), *Error);
+			// The editor's licence gate already opened the Welcome window; an
+			// unaccepted licence is not an installation failure.
+			if (Error == FTryllManagedServerProcess::ServerNeedsLicenceMessage)
+			{
+				UE_LOG(LogTryll, Log, TEXT("Tryll server launch waits for the licence: %s"), *Error);
+			}
+			else
+			{
+				UE_LOG(LogTryll, Error, TEXT("Failed to launch/reuse the Tryll server: %s"), *Error);
+			}
 			return;
 		}
 		ServerPort = EditorBridge->GetActualPort();

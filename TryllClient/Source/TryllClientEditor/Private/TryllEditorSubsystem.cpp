@@ -929,7 +929,16 @@ void UTryllEditorSubsystem::LaunchAndConnect()
 	RefreshOwnerPhase();
 	if (!TryLaunch(Settings->ServerBuildVariant, KnownPort, /*IdleShutdownTimeoutSeconds=*/60, Error))
 	{
-		UE_LOG(LogTryll, Error, TEXT("Failed to launch/reuse the Tryll server: %s"), *Error);
+		// An unaccepted licence is an expected first-run state, not a failure: the
+		// Welcome window is already open and every panel shows the sentence.
+		if (Error == FTryllEditorUiContract::ServerNeedsLicence)
+		{
+			UE_LOG(LogTryll, Log, TEXT("Tryll server launch waits for the licence: %s"), *Error);
+		}
+		else
+		{
+			UE_LOG(LogTryll, Error, TEXT("Failed to launch/reuse the Tryll server: %s"), *Error);
+		}
 		// Surface the launch failure to subscribers (e.g. the PIE model guard) so it
 		// becomes a clear error instead of an indefinite wait — this branch previously
 		// returned silently, leaving a guard that only advances on delegate callbacks

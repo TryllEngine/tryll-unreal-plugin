@@ -18,6 +18,7 @@
 #include "TryllEditorConnectionPolicy.h"
 #include "TryllDocs.h"
 #include "ModelManager/ModelManagerConfig.h"
+#include "TryllClientModule.h"
 #include "TryllEditorUiContract.h"
 #include "TryllModelCatalogFile.h"
 #include "TryllInspectorSplitMath.h"
@@ -1710,7 +1711,14 @@ void STryllModelManagerPanel::Fail(const FString& Reason)
 {
 	OperationalError = Reason;
 	SetState(EState::Error, Reason);
-	UE_LOG(LogTemp, Warning, TEXT("STryllModelManagerPanel: %s"), *Reason);
+	if (Reason == FTryllEditorUiContract::ServerNeedsLicence)
+	{
+		UE_LOG(LogTryll, Log, TEXT("STryllModelManagerPanel: %s"), *Reason);
+	}
+	else
+	{
+		UE_LOG(LogTryll, Warning, TEXT("STryllModelManagerPanel: %s"), *Reason);
+	}
 }
 
 // ── Lifecycle ─────────────────────────────────────────────────────────────────

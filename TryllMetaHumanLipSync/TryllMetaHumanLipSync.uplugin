@@ -1,7 +1,7 @@
 {
     "FileVersion": 3,
-    "Version": 1001,
-    "VersionName": "0.10.1",
+    "Version": 1002,
+    "VersionName": "0.10.2",
     "FriendlyName": "Tryll MetaHuman Lip Sync",
     "Description": "Drives MetaHuman faces from Tryll TTS audio at runtime via Epic's realtime speech-to-animation model.",
     "Category": "Tryll",

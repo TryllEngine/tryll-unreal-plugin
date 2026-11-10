@@ -76,6 +76,7 @@ public:
 	void DebugAcceptForTests() { OnLicenceButton(true); }
 	void DebugWithdrawForTests() { OnLicenceButton(false); }
 	void DebugReadLicenceForTests() { OnReadLicence(); }
+	void DebugOpenLocalLicenceForTests() { OnOpenLocalLicence(); }
 	void DebugOpenTelemetryForTests() { OnOpenTelemetry(); }
 
 private:
@@ -105,11 +106,12 @@ private:
 	TSharedRef<SWidget> BuildServerStep();
 	TSharedRef<SWidget> BuildCommunity();
 	TSharedRef<SWidget> BuildFooter();
-	/** "Read the licence" (only with a LICENSE.md) and "Telemetry", as links or buttons. */
+	/** "Read the licence" and "Open local copy" (only with a LICENSE.md) and "Telemetry", as links or buttons. */
 	void AddLicenceLinks(const TSharedRef<class SWrapBox>& Target, bool bAsLinks);
 
 	void OnLicenceButton(bool bAccept);
 	void OnReadLicence();
+	void OnOpenLocalLicence();
 	void OnOpenTelemetry();
 	void HandleHostColorsRefreshed();
 
